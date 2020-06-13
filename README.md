@@ -1,6 +1,9 @@
 # COVID-19-Sentimental-Analysis-of-Twitter-Data
 A predictive analysis to know people’s sentiment towards the epidemic
 
+To view the demo video, click the following link,
+https://drive.google.com/drive/folders/1uARQMDIh5GfmpZMnNN4wu5cfElcHKYX8?usp=sharing
+
 PRE-REQUISITES:
 XAMPP
 PyCharm IDE
