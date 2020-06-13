@@ -1,0 +1,28 @@
+doc_name,cat_score,cat_label
+doc2020-04-01,0.69617,/art and entertainment/shows and events
+doc2020-04-01,0.658994,/society
+doc2020-04-01,0.6543,/business and industrial/business operations/business plans
+doc2020-04-02,0.77535,/health and fitness/disease/cold and flu
+doc2020-04-02,0.653868,/health and fitness/disease/epidemic
+doc2020-04-02,0.633654,/art and entertainment/shows and events
+doc2020-04-03,0.785167,/health and fitness/disease/cold and flu
+doc2020-04-03,0.627726,/health and fitness/disease/epidemic
+doc2020-04-03,0.616636,/art and entertainment/shows and events
+doc2020-04-04,0.783346,/health and fitness/disease/cold and flu
+doc2020-04-04,0.639763,/health and fitness/disease/epidemic
+doc2020-04-04,0.605878,/art and entertainment/shows and events
+doc2020-04-06,0.697983,"/law, govt and politics"
+doc2020-04-06,0.693771,/health and fitness/disease/epidemic
+doc2020-04-06,0.688876,/society/unrest and war
+doc2020-04-08,0.621776,/art and entertainment/shows and events
+doc2020-04-08,0.612955,"/law, govt and politics"
+doc2020-04-08,0.601851,/family and parenting/babies and toddlers/baby clothes
+doc2020-04-09,0.739095,/health and fitness/disease/cold and flu
+doc2020-04-09,0.660343,/health and fitness/disease/epidemic
+doc2020-04-09,0.632092,/society/unrest and war
+doc2020-04-10,0.701354,/health and fitness/disease/cold and flu
+doc2020-04-10,0.64138,"/law, govt and politics"
+doc2020-04-10,0.635764,/health and fitness/disease/epidemic
+doc2020-04-11,0.945969,"/law, govt and politics"
+doc2020-04-11,0.906215,/society/unrest and war
+doc2020-04-11,0.857656,/society/work/unemployment

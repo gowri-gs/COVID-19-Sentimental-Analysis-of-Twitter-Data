@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentimental Analysis</title>
+    <!-- CSS only -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar shadow-sm p-3 mb-5 rounded" role="navigation">
+        <div class="navbar_brand">
+            <img src="./logo.png" alt="">
+        </div>
+        <p class="my-3 h3 col-lg-8 navbar_title"> COVID-19 Sentiment Analysis
+          <button type="button" class="btn btn-light pull-right your_tweet_button" data-toggle="modal" data-target="#yourTweet">
+            <i class="fa fa-twitter"></i>
+            Your Tweet</button>  
+        </p>
+        
+    </nav>
+     
+    <div class="analysis_body">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body text-center h5 font-weight-bold">
+                      The current COVID-19 situation
+                    </div>
+                    <div class="statistics_covid d-flex justify-content-around">
+                        <span>
+                            <span class="font-weight-bold" id="total_cases"></span>
+                            <p class="text-small h6">Total Cases</p>
+                        </span>
+                        <span>
+                            <span class="font-weight-bold" id="total_deaths"></span>
+                            <p class="text-small">Deaths</p>
+                        </span>
+                    </div>
+                  </div>
+                  <div class="card my-3">
+                    <div class="card-body">
+                      <!-- <h5 class="text-center font-weight-bold">
+                        
+                      </h5> -->
+                      <div id="myDiv" class="mx-auto col-lg-11"><!-- Plotly chart will be drawn inside this DIV --></div>  
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-5">
+              <!-- <div class="d-flex justify-content-end mb-4"> -->
+                <!-- <div>
+                  <input type="text" id="date_picker" name="daterange" value="04/01/2020 - 04/09/2020" minDate="04/01/2020" maxDate="04/09/2020"/>
+                  <span for="date_picker" class="text-light"> (MM-DD-YYYY)</span>
+                </div>  -->
+                
+              <!-- </div> -->
+              <div class="card" style="height: 641px;">
+                    <div class="card-body">
+                        <h4 class="text-center font-weight-bold">
+                          Real-time Twitter Sentiment Analysis
+                        </h4>
+                        <p class="text-justify h6"> Sentiment analysis helps in understanding people’s feelings towards COVID-19. Tweets are identified, transformed and categorized into positive, negative or neutral sentiments.</p>
+                        <div id="myDiv_pie" class="mx-auto col-lg-12"><!-- Plotly chart will be drawn inside this DIV --></div>   
+                      </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <div id="myDiv_bar_category" class="mx-auto col-lg-11"><!-- Plotly chart will be drawn inside this DIV --></div>   
+              </div>
+          </div>
+            </div>
+          </div>
+        </div>
+    </div>
+     <!-- The Modal -->
+  <div class="modal" id="yourTweet">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">What's your opinion on COVID-19 ?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body mx-auto">
+            <textarea name="DETAILS" id="tweet" cols="40" rows="3" form="feed"></textarea>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">  
+          <form action="http://localhost/feedbackcovid.php" method="post" id="feed">
+          <!--<button type="button" class="btn btn-danger" data-dismiss="modal" >Tweet</button>--> 
+            <input type ="submit" value="Tweet" onclick="javascript:clear()"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-6">
+      <img class="cloud_img" src="./wordCloud (1).png" alt="">
+    </div>
+    <div class="text_content col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <p>
+            <h1>WORDCLOUD:</h1>
+
+            A word cloud is a novelty visual representation of text data, typically used to depict keyword metadata (tags) on websites, or to visualize free form text. Tags are usually single words, and the importance of each tag is shown with font size or color.
+          </p>
+          <p></p>
+            The purpose of the wordcloud here is that it updated on trending user opinions.User opinions mentioned are the zephy tweets. So, updations are done in the server side.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="mx-5 mt-5 lightbox_title">Sentimental Analysis on Trending #@shtags:</h3>
+  <div class="row">
+    <div class="column">
+      <img src="indiafights.png" width="240" height="152" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="lockdown 5.0.png" width="240" height="152" onclick="openModal();currentSlide(2)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="unlock 1.0.png" width="240" height="152" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="social.png" width="240" height="152" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  <div class="column">
+      <img src="mentalhealth.png" width="240" height="152" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  <div class="column">
+      <img src="promote.png" width="240" height="152" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  <div class="column">
+      <img src="quarantine.png" width="240" height="152" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  <div class="column">
+      <img src="lockdownrx.png" width="240" height="152" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  </div>
+  
+  <!-- The Modal/Lightbox -->
+  <div id="myModal" class="mmodal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="mmodal-content">
+  
+      <div class="mySlides">
+        <div class="numbertext">1 / 10</div>
+        <img src="indiafights.png" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">2 / 10</div>60
+        <img src="lockdown 5.0.png" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">3 / 10</div>
+        <img src="unlock 1.0.png" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">4 / 10</div>
+        <img src="social.png" style="width:100%">
+      </div>
+  <div class="mySlides">
+        <div class="numbertext">5 / 10</div>
+        <img src="mentalhealth.png" style="width:100%">
+      </div>
+  <div class="mySlides">
+        <div class="numbertext">6 / 10</div>
+        <img src="promote.png" style="width:100%">
+      </div>
+  <div class="mySlides">
+        <div class="numbertext">7 / 10</div>
+        <img src="quarantine.png" style="width:100%">
+      </div>
+  <div class="mySlides">
+        <div class="numbertext">8 / 10</div>
+        <img src="lockdownrx.png" style="width:100%">
+      </div>
+  
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+      <!-- Caption text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+  
+      <!-- Thumbnail image controls -->
+      <div class="column">
+        <img class="demo" src="indiafights.png" width="240" height="152" onclick="currentSlide(1)" alt="#IndiaFightsCorona">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="lockdown 5.0.png" width="240" height="152" onclick="currentSlide(2)" alt="#lockdown5.0">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="unlock 1.0.png" width="240" height="152" onclick="currentSlide(3)" alt="#unlock1.0">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="social.png" width="240" height="152" onclick="currentSlide(4)" alt="#socialdistancing">
+      </div>
+  <div class="column">
+        <img class="demo" src="mentalhealth.png" width="240" height="152" onclick="currentSlide(5)" alt="#mentalhealth_duringcorona">
+      </div>
+  <div class="column">
+        <img class="demo" src="promote.png" width="240" height="152" onclick="currentSlide(6)" alt="#promote_all_college_students">
+      </div>
+  <div class="column">
+        <img class="demo" src="quarantine.png" width="240" height="152" onclick="currentSlide(7)" alt="#quarantine">
+      </div>
+  <div class="column">
+        <img class="demo" src="lockdownrx.png" width="240" height="152" onclick="currentSlide(8)" alt="#lockdown">
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="row mx-3 pull-right ">
+    <div class="col-lg-12 contact">
+        <h6 id="email">EMAIL: zephyrs3416@gmail.com</h6> 
+        <h6 id="zephyrsaddress">
+        ZEPHYRS,
+        </h6>
+        <h6 id="phone">PHONE: +91 8825723971</h6>
+        <h6>Copyright © zephyrs</h6>
+    </div>
+  </div>
+    
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
