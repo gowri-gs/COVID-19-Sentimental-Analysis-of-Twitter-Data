@@ -15,7 +15,7 @@ To see the output data for individual dataset run the python code and view the d
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 When cloned, contains  
-	index.html --> Webpage
+	index.html --> Webpage                                         
 	index.js --> javascript file
 	style.css --> CSS file
 	feedbackcovid -->php file
