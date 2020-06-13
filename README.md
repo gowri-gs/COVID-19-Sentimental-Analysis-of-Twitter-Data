@@ -35,8 +35,7 @@ Python codes folder contains all the python codes, dataset(10 days) and the outp
 	docemo.py --> Gives docemo.csv as output which contains the positive, negative, neutral, sadness, joy, fear, anger, disgust final analytical output for 10 days dataset.                                         
 	toneanal.py --> Gives catop.csv as output which has the final analytical output for 10 days dataset categorised based on the pre-defined categories.                                         
 	When docemo.py is executed, enter the csv file (Eg: doc2020-04-01) and its output is appended in docemo.csv                                         
-	When toneanal.py is executed, enter the csv file (Eg: doc2020-04-01) and its output is appended in catop.csv                                         
-	
+	When toneanal.py is executed, enter the csv file (Eg: doc2020-04-01) and its output is appended in catop.csv                                    
 	piegraph.py --> Takes docemo.csv as input and piechart is the output.                                         
 	linegraph.py --> Takes docemo.csv as input and line graph is the output.                                         
 	emograph.py --> Takes catop.csv and result1.csv is created from catop.csv and bar graph is the output.                                         
