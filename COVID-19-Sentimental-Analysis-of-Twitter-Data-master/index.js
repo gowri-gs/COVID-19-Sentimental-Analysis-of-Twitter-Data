@@ -1,5 +1,5 @@
 function makeplotSentiment() {
-  Plotly.d3.csv("https://raw.githubusercontent.com/gowri-gs/COVID-19-Sentimental-Analysis-of-Twitter-Data/master/docemo.csv",
+  Plotly.d3.csv("https://raw.githubusercontent.com/gowri-gs/COVID-19-Sentimental-Analysis-of-Twitter-Data/master/COVID-19-Sentimental-Analysis-of-Twitter-Data-master/Python%20codes/docemo.csv",
     function(data){ processDataSentiment(data) } );
 
 };
@@ -92,7 +92,7 @@ function makePlotlySentiment( sadness,joy,fear,disgust,anger,date,pos,neg,neu){
   makeplotSentiment();
 
   function makeplotCategory(){
-    Plotly.d3.csv("https://raw.githubusercontent.com/gowri-gs/COVID-19-Sentimental-Analysis-of-Twitter-Data/master/docemo.csv",
+    Plotly.d3.csv("https://raw.githubusercontent.com/gowri-gs/COVID-19-Sentimental-Analysis-of-Twitter-Data/master/COVID-19-Sentimental-Analysis-of-Twitter-Data-master/Python%20codes/result1.csv",
     function(data){ processDataCategory(data) } );
   }
   function processDataCategory(data){
